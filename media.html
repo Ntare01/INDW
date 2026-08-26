@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media — Indinzi Cultural Troupe</title>
+<meta name="description" content="Photos and videos from Indinzi Cultural Troupe performances, rehearsals and community events.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+
+  <section class="page-hero" style="padding-bottom:40px;">
+    <div class="container">
+      <p class="eyebrow">Media</p>
+      <h1>The archive.</h1>
+      <p>Performances, rehearsals and behind-the-scenes moments — tap anything to open it.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <!-- Filters removed for simple gallery -->
+
+      <div class="discover-grid" id="discover-grid"></div>
+      <div class="media-empty" id="media-empty" style="display:none;">
+        <p>Nothing here yet — add items in <code>js/media-data.js</code>.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-stage" id="lightbox-stage-wrap">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next">
+      <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <div id="lightbox-stage"></div>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+</div>
+
+<script src="js/partials.js"></script>
+<script src="js/main.js"></script>
+<script src="js/media-data.js"></script>
+<script src="js/media.js"></script>
+</body>
+</html>
