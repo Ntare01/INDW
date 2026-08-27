@@ -48,12 +48,12 @@ function initContactForm() {
       reason: form.reason.value,
       message: form.message.value,
     };
-    // Determine backend endpoint. If you're serving the static site with
-    // Live Server (typically at :5500) use the local contact server at
-    // port 3000. Otherwise post to the same origin.
+    // Allow overriding the backend at runtime by setting `window.BACKEND_URL`.
+    // This makes it easy to point the site at the Render backend once deployed.
     const origin = window.location.origin;
-    let backend = origin;
-    if (origin.includes(':5500') || origin.includes(':5501')) {
+    const BACKEND_URL = (typeof window !== 'undefined' && window.BACKEND_URL) ? window.BACKEND_URL : '';
+    let backend = BACKEND_URL || origin;
+    if (!BACKEND_URL && (origin.includes(':5500') || origin.includes(':5501'))) {
       backend = 'http://localhost:3000';
     }
     const endpoint = backend.replace(/\/$/, '') + '/send-contact';
