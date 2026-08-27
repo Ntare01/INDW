@@ -26,6 +26,8 @@ function signalPartialsReady() {
       icon: '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>' },
     { href: "about.html", label: "About",
       icon: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>' },
+    { href: "packages.html", label: "Packages",
+      icon: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/>' },
     { href: "media.html", label: "Media",
       icon: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M9 9l6 3-6 3V9z" fill="currentColor" stroke="none"/>' },
     { href: "events.html", label: "Events",

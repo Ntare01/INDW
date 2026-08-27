@@ -637,6 +637,117 @@ section { padding: 88px 0; }
 }
 .past-event .tag { color: var(--ink-soft); border-color: var(--beige-dark); }
 
+
+
+
+
+/* ==========================================================================
+   PACKAGES PAGE
+   ========================================================================== */
+.package-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid rgba(107,66,38,0.1);
+  border-radius: var(--radius);
+  padding: 36px 30px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.package-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-soft); }
+
+.package-card.featured {
+  background: var(--brown-deep);
+  color: var(--beige);
+  border-color: transparent;
+  transform: scale(1.03);
+}
+.package-card.featured h3,
+.package-card.featured .package-price { color: var(--cream); }
+.package-card.featured .package-desc { color: var(--beige); }
+.package-card.featured .package-specs li { color: var(--beige); border-color: rgba(228,211,180,0.18); }
+.package-card.featured .spec-icon { background: var(--gold); color: var(--brown-black); }
+
+.package-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--brown-black);
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.package-head { margin-bottom: 14px; }
+.package-head h3 { font-size: 1.4rem; margin-bottom: 6px; }
+.package-price {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.package-desc {
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  margin-bottom: 22px;
+}
+
+.package-specs {
+  margin-bottom: 26px;
+  flex-grow: 1;
+}
+.package-specs li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(107,66,38,0.1);
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.package-specs li:last-child { border-bottom: none; }
+
+.spec-icon {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--beige);
+  color: var(--brown-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.package-card .btn { align-self: flex-start; }
+
+.package-note {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  max-width: 64ch;
+  margin: 40px auto 0;
+}
+
+@media (max-width: 860px) {
+  .package-card.featured { transform: none; }
+  .package-card.featured:hover { transform: translateY(-6px); }
+}
+
 /* ==========================================================================
    CONTACT PAGE
    ========================================================================== */
