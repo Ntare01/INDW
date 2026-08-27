@@ -1,0 +1,15 @@
+# Ignore backend/server files so Vercel treats this as a static site
+server.js
+package.json
+package-lock.json
+Dockerfile
+README-contact-server.md
+scripts/
+node_modules/
+
+# Ignore local env files
+.env
+.env.local
+
+# Ignore large raw media source files (keep deployed assets small)
+assets/media/raw/
