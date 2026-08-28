@@ -77,7 +77,8 @@ function initContactForm() {
       })
       .catch((err) => {
         console.error('Contact send error', err);
-        alert('Failed to send message. Please try again later.');
+        const msg = err && err.message ? err.message : 'Failed to send message. Please try again later.';
+        alert('Failed to send message: ' + msg);
       });
   });
 }
