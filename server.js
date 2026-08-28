@@ -41,6 +41,14 @@ transporter.verify().then(() => {
 // Optional: serve static site files when running server from repo root
 app.use(express.static(path.join(__dirname, '.')));
 
+// Validate required environment variables for sending mail
+const requiredEnvs = ['SMTP_HOST','SMTP_PORT','SMTP_USER','SMTP_PASS','CONTACT_EMAIL'];
+const missingEnvs = requiredEnvs.filter(k => !process.env[k]);
+const smtpReady = missingEnvs.length === 0;
+if (!smtpReady) {
+  console.warn('Mail configuration incomplete. Missing env vars:', missingEnvs.join(', '));
+}
+
 app.post('/send-contact', async (req, res) => {
   try {
     const { name, email, reason, message } = req.body || {};
@@ -58,7 +66,11 @@ app.post('/send-contact', async (req, res) => {
       html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Reason:</strong> ${reason || ''}</p><hr><p>${message}</p>`
     };
 
-    // Attempt to send via SMTP. If it fails, return an error to the client
+    // Validate envs before attempting send
+    if (!smtpReady) {
+      return res.status(500).json({ error: 'SMTP not configured', missing: missingEnvs });
+    }
+
     try {
       await transporter.sendMail(mail);
       return res.json({ ok: true });
