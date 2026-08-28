@@ -58,10 +58,30 @@ app.post('/send-contact', async (req, res) => {
       html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Reason:</strong> ${reason || ''}</p><hr><p>${message}</p>`
     };
 
-    await transporter.sendMail(mail);
-    return res.json({ ok: true });
+    // If SMTP or contact recipient is not configured, queue the message to disk
+    const smtpConfigured = process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && process.env.CONTACT_EMAIL;
+    const fs = require('fs');
+    const queuePath = path.join(__dirname, 'queued-messages.log');
+
+    if (!smtpConfigured) {
+      const queued = { ts: new Date().toISOString(), method: 'queue-no-smtp', mail };
+      try { fs.appendFileSync(queuePath, JSON.stringify(queued) + '\n'); } catch (e) { console.error('Failed to queue message', e); }
+      console.warn('SMTP not configured — queued contact message to', queuePath);
+      return res.json({ ok: true, queued: true, note: 'Message queued (no SMTP configured)'});
+    }
+
+    try {
+      await transporter.sendMail(mail);
+      return res.json({ ok: true });
+    } catch (sendErr) {
+      // On send failure, persist the message so it isn't lost and return success
+      const queued = { ts: new Date().toISOString(), method: 'queue-on-fail', error: sendErr && sendErr.message ? sendErr.message : String(sendErr), mail };
+      try { fs.appendFileSync(queuePath, JSON.stringify(queued) + '\n'); } catch (e) { console.error('Failed to queue message after send error', e); }
+      console.error('sendMail failed — message queued to', queuePath, sendErr && sendErr.stack ? sendErr.stack : sendErr);
+      return res.json({ ok: true, queued: true, note: 'Message queued (send failed)'});
+    }
   } catch (err) {
-    console.error('send-contact error', err);
+    console.error('send-contact error', err && err.stack ? err.stack : err);
     return res.status(500).json({ error: 'Failed to send message' });
   }
 });
