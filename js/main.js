@@ -52,7 +52,9 @@ function initContactForm() {
     // This makes it easy to point the site at the Render backend once deployed.
     const origin = window.location.origin;
     const BACKEND_URL = (typeof window !== 'undefined' && window.BACKEND_URL) ? window.BACKEND_URL : '';
-    let backend = BACKEND_URL || origin;
+    // Prefer a hosted backend (Render). If no BACKEND_URL set, default to Render service.
+    let backend = BACKEND_URL || 'https://indw.onrender.com';
+    // Local dev override when running on Live Server
     if (!BACKEND_URL && (origin.includes(':5500') || origin.includes(':5501'))) {
       backend = 'http://localhost:3000';
     }
