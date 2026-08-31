@@ -102,10 +102,10 @@ function signalPartialsReady() {
           <div class="footer-col">
             <h5>Get in touch</h5>
             <a href="mailto:indinziculturetroupe@gmail.com">indinziculturetroupe@gmail.com</a>
-            <div style="display:flex;flex-direction:column;gap:6px; margin-top:8px;">
-              <a href="tel:+250785038287">+250 785 038 287</a>
-              <a href="tel:+250785864543">+250 785 864 543</a>
-              <a href="tel:+15206372966">+1 (520) 637-2966</a>
+            <div style="display:flex;flex-direction:column;gap:6px; margin-top:8px; color:var(--ink-soft); font-size:0.95rem;">
+              <span>+250 785 038 287</span>
+              <span>+250 785 864 543</span>
+              <span>+1 (520) 637-2966</span>
             </div>
             <p style="margin-top:8px;">Kigali, Rwanda</p>
           </div>
