@@ -178,6 +178,13 @@ h1, h2, h3, h4 {
 }
 .logo span { color: var(--gold); }
 
+/* Logo image sizing when present */
+.logo img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
 .nav-desktop {
   display: flex;
   gap: 36px;

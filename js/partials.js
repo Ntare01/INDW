@@ -59,7 +59,7 @@ function signalPartialsReady() {
     return `
     <header class="site-header">
       <div class="header-inner">
-        <a href="index.html" class="logo">Indinzi <span>Troupe</span></a>
+        <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="Indinzi Cultural Troupe"></a>
         <nav class="nav-desktop" aria-label="Primary">${desktopLinks}</nav>
         <div class="header-cta">
           <a href="events.html" class="btn btn-outline" style="padding:10px 22px;">Upcoming Events</a>
