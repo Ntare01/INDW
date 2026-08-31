@@ -615,28 +615,23 @@ section { padding: 88px 0; }
 
 /* Banner-style event for single-upcoming image */
 .event-banner {
-  position: relative;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: end;
+  display: block;
 }
-.event-banner img { width: 100%; height: 420px; object-fit: cover; display: block; }
+.event-banner img { width: 100%; height: auto; display: block; }
 .event-banner-caption {
-  position: absolute;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, rgba(36,19,7,0.0) 0%, rgba(36,19,7,0.55) 55%, rgba(36,19,7,0.85) 100%);
-  color: var(--cream);
-  padding: 22px;
-  border-radius: 6px;
-  max-width: 640px;
-  width: calc(100% - 48px);
+  position: relative;
+  background: transparent;
+  color: var(--ink);
+  padding: 18px 12px 0;
+  max-width: 780px;
+  margin: 0 auto 12px;
   text-align: center;
 }
+.event-banner-caption h3 { color: var(--brown-black); }
+.event-banner-caption .meta { color: var(--ink-soft); }
 .event-banner-caption h3 { margin: 0 0 6px 0; font-size: 1.4rem; }
 .event-banner-caption .meta { color: rgba(255,255,255,0.9); }
 .event-card .tag {
