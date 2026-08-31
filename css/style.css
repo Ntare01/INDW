@@ -805,14 +805,6 @@ section { padding: 88px 0; }
 
 .social-row { display: flex; gap: 12px; margin-top: 8px; }
 .social-row a {
-  width: 42px; height: 42px;
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 50%;
-  background: var(--brown-deep);
-  color: var(--cream);
-  transition: transform 0.25s var(--ease), background 0.25s var(--ease);
-}
-.social-row a {
   display: inline-flex;
   width: 40px;
   height: 40px;
@@ -823,11 +815,11 @@ section { padding: 88px 0; }
   border: 1px solid rgba(36,19,7,0.06);
   color: var(--brown-deep);
   box-shadow: var(--shadow-card);
+  transition: transform 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
 }
 .social-row a + a { margin-left: 10px; }
-.social-row a svg { width: 18px; height: 18px; fill: currentColor; stroke: none; }
-.social-row a:hover { transform: translateY(-3px); background: var(--gold); }
-.social-row svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+.social-row a svg { width: 18px; height: 18px; display: block; }
+.social-row a:hover { transform: translateY(-3px); background: var(--gold); color: var(--brown-black); }
 
 .map-frame {
   border-radius: var(--radius);
