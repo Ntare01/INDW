@@ -806,25 +806,22 @@ section { padding: 88px 0; }
 .social-row { display: flex; gap: 12px; margin-top: 8px; }
 .social-row a {
   display: inline-flex;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--white);
-  border: 1px solid rgba(36,19,7,0.06);
-  color: var(--brown-deep);
-  box-shadow: var(--shadow-card);
-  transition: transform 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
+  background: #3f7f74; /* teal-green */
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.06);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.06);
+  transition: transform 0.16s var(--ease), background 0.16s var(--ease), opacity 0.16s var(--ease);
 }
-.social-row a + a { margin-left: 10px; }
+.social-row a + a { margin-left: 14px; }
 .social-row a svg { width: 20px; height: 20px; display: block; }
-.social-row a svg * {
-  fill: currentColor !important;
-  stroke: none !important;
-}
+.social-row a svg * { fill: currentColor !important; stroke: none !important; }
 .social-row a svg { transform-origin: center; }
-.social-row a:hover { transform: translateY(-3px); background: var(--gold); color: var(--brown-black); }
+.social-row a:hover { transform: translateY(-2px); opacity: 0.95; background: #367064; }
 
 .map-frame {
   border-radius: var(--radius);
