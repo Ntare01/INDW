@@ -116,6 +116,23 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-card);
 }
 .btn-primary:hover { background: var(--brown-black); transform: translateY(-2px); }
+
+/* Contact CTA: make primary button match footer style (dark brown, larger, icon gap) */
+.contact-cta .btn-primary {
+  background: var(--brown-deep);
+  color: var(--cream);
+  padding: 16px 34px;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(36,19,7,0.12);
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.contact-cta .btn-primary svg { filter: brightness(0) invert(1); }
+
+/* Email text under CTA: match footer muted style */
+.contact-cta a[href^="mailto:"] { color: var(--ink-soft); font-weight: 600; }
 .btn-outline {
   background: transparent;
   color: var(--brown-deep);
