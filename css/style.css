@@ -180,9 +180,17 @@ h1, h2, h3, h4 {
 
 /* Logo image sizing when present */
 .logo img {
-  height: 44px;
+  height: 56px;
   width: auto;
   display: block;
+}
+
+@media (min-width: 1200px) {
+  .logo img { height: 72px; }
+}
+
+@media (max-width: 899px) {
+  .logo img { height: 40px; }
 }
 
 .nav-desktop {
