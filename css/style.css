@@ -823,6 +823,15 @@ section { padding: 88px 0; }
 .social-row a svg { transform-origin: center; }
 .social-row a:hover { transform: translateY(-2px); opacity: 0.95; background: #367064; }
 
+/* Font Awesome circular brand icons */
+.social-icons-circle{display:flex;gap:14px;align-items:center}
+.social-icons-circle .icon{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:50%;text-decoration:none;color:#fff;box-shadow:0 2px 0 rgba(0,0,0,.15);transition:transform .12s,box-shadow .12s}
+.social-icons-circle .icon i{font-size:20px;line-height:1}
+.social-icons-circle .icon:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.social-icons-circle .whatsapp{background:#25D366}
+.social-icons-circle .instagram{background:radial-gradient(circle at 30% 20%,#fdf497 0,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
+.social-icons-circle .tiktok{background:linear-gradient(135deg,#35f6ff 0%,#ff4ecd 100%)}
+
 .map-frame {
   border-radius: var(--radius);
   overflow: hidden;

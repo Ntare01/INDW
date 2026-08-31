@@ -80,15 +80,15 @@ function signalPartialsReady() {
           <div class="footer-col">
             <div class="footer-logo">Indinzi Cultural Troupe</div>
             <p style="max-width:34ch;">Keepers of rhythm, dance and story — carrying tradition into every performance.</p>
-            <div class="social-row" style="margin-top:16px;">
-              <a href="https://wa.me/250785038287" aria-label="WhatsApp" target="_blank" rel="noopener">
-                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M20.52 3.48A11.9 11.9 0 0 0 12 1C6.48 1 1.98 5.5 1.98 11.02c0 1.93.5 3.82 1.45 5.5L1 23l6.7-2.1c1.6.86 3.4 1.3 5.3 1.3 5.52 0 10.02-4.5 10.02-10.02 0-3-1.17-5.82-3.5-7.7z"/></svg>
+            <div class="social-icons-circle" style="margin-top:16px;">
+              <a href="https://wa.me/250785038287" class="icon whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
               </a>
-              <a href="https://www.instagram.com/___indinziculturaltroupe___/" aria-label="Instagram" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              <a href="https://www.instagram.com/___indinziculturaltroupe___/" class="icon instagram" aria-label="Instagram" target="_blank" rel="noopener">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="https://www.tiktok.com/@indinzi_cultural_troupe" aria-label="TikTok" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24"><path d="M9 3v10.5A5.5 5.5 0 1 0 14.5 19V9h3V6h-3V3H9z"/></svg>
+              <a href="https://www.tiktok.com/@indinzi_cultural_troupe" class="icon tiktok" aria-label="TikTok" target="_blank" rel="noopener">
+                <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -100,15 +100,15 @@ function signalPartialsReady() {
             <a href="contact.html">Contact</a>
           </div>
           <div class="footer-col">
-            <h5>Get in touch</h5>
-            <a href="mailto:indinziculturetroupe@gmail.com">indinziculturetroupe@gmail.com</a>
-            <div style="display:flex;flex-direction:column;gap:6px; margin-top:8px; color:var(--ink-soft); font-size:0.95rem;">
-              <span>+250 785 038 287</span>
-              <span>+250 785 864 543</span>
-              <span>+1 (520) 637-2966</span>
+              <h5>Get in touch</h5>
+              <a href="mailto:indinziculturetroupe@gmail.com">indinziculturetroupe@gmail.com</a>
+              <div style="display:flex;flex-direction:column;gap:6px; margin-top:8px; color:var(--ink-soft); font-size:0.95rem;">
+                <span>+250 785 038 287</span>
+                <span>+250 785 864 543</span>
+                <span>+1 (520) 637-2966</span>
+              </div>
+              <p style="margin-top:8px;">Kigali, Rwanda</p>
             </div>
-            <p style="margin-top:8px;">Kigali, Rwanda</p>
-          </div>
         </div>
         <div class="footer-bottom">
           <span>&copy; ${year} Indinzi Cultural Troupe. All rights reserved.</span>
@@ -119,6 +119,17 @@ function signalPartialsReady() {
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    // Ensure Font Awesome stylesheet is present for brand icons (CDN fallback)
+    (function ensureFontAwesome(){
+      const href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+      if (!document.querySelector('link[href="' + href + '"]')){
+        const l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        l.crossOrigin = 'anonymous';
+        document.head.appendChild(l);
+      }
+    })();
     const headerMount = document.getElementById("site-header");
     const footerMount = document.getElementById("site-footer");
     if (headerMount) headerMount.outerHTML = buildHeader();
