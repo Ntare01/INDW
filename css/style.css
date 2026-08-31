@@ -818,7 +818,12 @@ section { padding: 88px 0; }
   transition: transform 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
 }
 .social-row a + a { margin-left: 10px; }
-.social-row a svg { width: 18px; height: 18px; display: block; }
+.social-row a svg { width: 20px; height: 20px; display: block; }
+.social-row a svg * {
+  fill: currentColor !important;
+  stroke: none !important;
+}
+.social-row a svg { transform-origin: center; }
 .social-row a:hover { transform: translateY(-3px); background: var(--gold); color: var(--brown-black); }
 
 .map-frame {
